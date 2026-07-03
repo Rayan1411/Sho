@@ -1,0 +1,15 @@
+{%- render 'breadcrumbs' -%}
+<div class="container">
+  <div class="page-content">
+    <h1>{{ page.title }}</h1>
+    <div class="product-info__description">{{ page.content }}</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [],
+  "presets": [{ "name": "Page" }]
+}
+{% endschema %}

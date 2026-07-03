@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "not-found": { "type": "404-template" }
+  },
+  "order": ["not-found"]
+}

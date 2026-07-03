@@ -1,0 +1,34 @@
+<div class="container" style="padding-block:48px;">
+  <a href="/account" class="btn btn-outline btn-sm" style="margin-bottom:28px;display:inline-flex;">← {{ 'customer.account.title' | t }}</a>
+  <h1 style="margin-bottom:8px;">{{ 'customer.order.title' | t: name: order.name }}</h1>
+  <p style="color:var(--c-text-m);margin-bottom:32px;">{{ 'customer.order.date' | t: date: order.created_at | date: '%d %B %Y' }}</p>
+
+  <div style="overflow-x:auto;margin-bottom:32px;">
+    <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+      <thead><tr style="border-bottom:2px solid var(--c-border);">
+        <th style="padding:12px 8px;text-align:start;">{{ 'customer.order.product' | t }}</th>
+        <th style="padding:12px 8px;text-align:start;">{{ 'customer.order.sku' | t }}</th>
+        <th style="padding:12px 8px;text-align:center;">{{ 'customer.order.quantity' | t }}</th>
+        <th style="padding:12px 8px;text-align:end;">{{ 'customer.order.total' | t }}</th>
+      </tr></thead>
+      <tbody>
+        {%- for line_item in order.line_items -%}
+          <tr style="border-bottom:1px solid var(--c-border);">
+            <td style="padding:14px 8px;">{{ line_item.title }}</td>
+            <td style="padding:14px 8px;color:var(--c-text-m);">{{ line_item.sku }}</td>
+            <td style="padding:14px 8px;text-align:center;">{{ line_item.quantity }}</td>
+            <td style="padding:14px 8px;text-align:end;font-weight:700;direction:ltr;">{{ line_item.final_line_price | money }}</td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+
+  <div style="max-width:360px;margin-inline-start:auto;">
+    <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--c-border);font-size:0.9rem;"><span>{{ 'customer.order.subtotal' | t }}</span><span style="direction:ltr;">{{ order.subtotal_price | money }}</span></div>
+    {%- if order.shipping_price > 0 -%}
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--c-border);font-size:0.9rem;"><span>{{ 'customer.order.shipping' | t }}</span><span style="direction:ltr;">{{ order.shipping_price | money }}</span></div>
+    {%- endif -%}
+    <div style="display:flex;justify-content:space-between;padding-top:16px;font-weight:800;font-size:1rem;"><span>{{ 'customer.order.total' | t }}</span><span style="color:var(--c-primary);direction:ltr;">{{ order.total_price | money }}</span></div>
+  </div>
+</div>

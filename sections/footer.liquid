@@ -1,0 +1,240 @@
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER — دكان 9 / Dukkan9
+     Sections: Brand + Social | Quick Links | Policies | Contact
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="d9-footer" role="contentinfo">
+
+  <!-- ── Top strip: brand tagline ── -->
+  <div class="d9-footer__top">
+    <div class="container d9-footer__top-inner">
+      <p class="d9-footer__tagline">
+        {%- if shop.locale == 'ar' -%}
+          🛍️ كل ما تحتاجه في مكان واحد — جودة عالية، شحن سريع، خدمة على مدار الساعة
+        {%- else -%}
+          🛍️ Everything you need in one place — Quality products, Fast shipping, 24/7 support
+        {%- endif -%}
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Main grid ── -->
+  <div class="d9-footer__main">
+    <div class="container">
+      <div class="d9-footer__grid">
+
+        <!-- COL 1: Brand + Social -->
+        <div class="d9-footer__col d9-footer__col--brand">
+          <a href="/" class="d9-footer__logo">
+            {%- if shop.locale == 'ar' -%}دكان 9{%- else -%}Dukkan9{%- endif -%}
+            <span class="d9-footer__logo-dot"></span>
+          </a>
+          <p class="d9-footer__desc">
+            {%- if shop.locale == 'ar' -%}
+              {{ section.settings.description_ar | default: 'متجرك المفضل للمنتجات عالية الجودة — كل ما تحتاجه في مكان واحد.' }}
+            {%- else -%}
+              {{ section.settings.description_en | default: 'Your favorite store for high-quality products — everything you need in one place.' }}
+            {%- endif -%}
+          </p>
+
+          <!-- Social icons -->
+          <div class="d9-footer__social">
+            {%- if section.settings.instagram != blank -%}
+              <a href="{{ section.settings.instagram }}" class="d9-footer__social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.tiktok != blank -%}
+              <a href="{{ section.settings.tiktok }}" class="d9-footer__social-btn" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.94a8.22 8.22 0 0 0 4.81 1.54V7.04a4.85 4.85 0 0 1-1.04-.35z"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.snapchat != blank -%}
+              <a href="{{ section.settings.snapchat }}" class="d9-footer__social-btn" aria-label="Snapchat" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.166 2C9.579 2 7.279 3.177 5.851 5.07c-.796 1.048-1.2 2.3-1.2 3.632v.468c0 .256-.133.492-.35.624-.362.22-.762.393-1.19.515-.117.033-.193.143-.175.264.02.128.135.22.265.22.031 0 .063-.005.093-.014.464-.133.904-.319 1.311-.549.007.1.016.2.028.299.04.322.098.638.175.946-.457.147-.83.437-1.047.836-.068.126-.053.281.038.39.091.11.244.15.375.1.407-.148.79-.275 1.136-.26.34.014.644.134.82.283.484.475 1.064.868 1.728 1.165.87.386 1.858.59 2.941.59 2.05 0 3.844-.73 5.061-2.073.088-.099.195-.15.32-.15.305.003.687.107 1.088.248a.3.3 0 0 0 .095.015c.13 0 .245-.093.265-.22.018-.121-.057-.232-.175-.264-.43-.123-.828-.296-1.19-.515a.729.729 0 0 1-.35-.624v-.468c0-1.332-.404-2.584-1.2-3.632C16.887 3.177 14.587 2 12 2h.166z"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.twitter != blank -%}
+              <a href="{{ section.settings.twitter }}" class="d9-footer__social-btn" aria-label="X (Twitter)" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.whatsapp != blank -%}
+              <a href="https://wa.me/{{ section.settings.whatsapp | remove: '+' | remove: ' ' | remove: '-' }}" class="d9-footer__social-btn d9-footer__social-btn--wa" aria-label="WhatsApp" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <!-- COL 2: Quick Links -->
+        <div class="d9-footer__col">
+          <h4 class="d9-footer__heading">
+            {%- if shop.locale == 'ar' -%}روابط سريعة{%- else -%}Quick Links{%- endif -%}
+          </h4>
+          <ul class="d9-footer__list">
+            <li><a href="/">{%- if shop.locale == 'ar' -%}الرئيسية{%- else -%}Home{%- endif -%}</a></li>
+            <li><a href="/collections/all">{%- if shop.locale == 'ar' -%}جميع المنتجات{%- else -%}All Products{%- endif -%}</a></li>
+            {%- for link in linklists[section.settings.nav_menu].links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+            <li><a href="/pages/contact">{%- if shop.locale == 'ar' -%}تواصل معنا{%- else -%}Contact Us{%- endif -%}</a></li>
+          </ul>
+        </div>
+
+        <!-- COL 3: Policies (الأهم) -->
+        <div class="d9-footer__col">
+          <h4 class="d9-footer__heading">
+            {%- if shop.locale == 'ar' -%}السياسات{%- else -%}Our Policies{%- endif -%}
+          </h4>
+          <ul class="d9-footer__list d9-footer__list--policies">
+            <li>
+              <a href="/policies/privacy-policy">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16"><path d="M10 2L3 5v5c0 4.4 3 8.1 7 9 4-1 7-4.6 7-9V5l-7-3z"/></svg>
+                {%- if shop.locale == 'ar' -%}سياسة الخصوصية{%- else -%}Privacy Policy{%- endif -%}
+              </a>
+            </li>
+            <li>
+              <a href="/policies/refund-policy">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16"><path d="M3 10a7 7 0 1 0 14 0A7 7 0 0 0 3 10zm4 0l2 2 4-4"/></svg>
+                {%- if shop.locale == 'ar' -%}سياسة الاسترجاع والاستبدال{%- else -%}Return & Refund Policy{%- endif -%}
+              </a>
+            </li>
+            <li>
+              <a href="/policies/shipping-policy">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16"><rect x="1" y="7" width="13" height="9" rx="1"/><path d="M14 9h3l2 3v4h-5V9z"/><circle cx="5.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>
+                {%- if shop.locale == 'ar' -%}سياسة الشحن والتوصيل{%- else -%}Shipping Policy{%- endif -%}
+              </a>
+            </li>
+            <li>
+              <a href="/policies/terms-of-service">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="16" height="16"><path d="M4 2h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm2 4h8M6 9h8M6 13h5"/></svg>
+                {%- if shop.locale == 'ar' -%}الشروط والأحكام{%- else -%}Terms of Service{%- endif -%}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COL 4: Contact -->
+        <div class="d9-footer__col">
+          <h4 class="d9-footer__heading">
+            {%- if shop.locale == 'ar' -%}تواصل معنا{%- else -%}Get in Touch{%- endif -%}
+          </h4>
+          <ul class="d9-footer__list d9-footer__list--contact">
+            {%- if section.settings.whatsapp != blank -%}
+              <li>
+                <a href="https://wa.me/{{ section.settings.whatsapp | remove: '+' | remove: ' ' | remove: '-' }}" target="_blank" rel="noopener" class="d9-footer__contact-link">
+                  <span class="d9-footer__contact-icon d9-footer__contact-icon--green">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                  </span>
+                  {{ section.settings.whatsapp }}
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.email != blank -%}
+              <li>
+                <a href="mailto:{{ section.settings.email }}" class="d9-footer__contact-link">
+                  <span class="d9-footer__contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  </span>
+                  {{ section.settings.email }}
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if section.settings.address != blank -%}
+              <li class="d9-footer__address">
+                <span class="d9-footer__contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                {{ section.settings.address }}
+              </li>
+            {%- endif -%}
+          </ul>
+        </div>
+
+      </div><!-- /d9-footer__grid -->
+    </div>
+  </div><!-- /d9-footer__main -->
+
+  <!-- ── Payment methods ── -->
+  <div class="d9-footer__payments-bar">
+    <div class="container d9-footer__payments-inner">
+      <span class="d9-footer__payments-label">
+        {%- if shop.locale == 'ar' -%}طرق الدفع المقبولة:{%- else -%}Accepted payments:{%- endif -%}
+      </span>
+      <div class="d9-footer__payment-icons">
+        <!-- Visa -->
+        <div class="d9-pay-badge d9-pay-badge--white">
+          <svg viewBox="0 0 48 16" width="40" height="14"><text x="0" y="13" font-size="14" font-weight="900" fill="#1A1F71" font-family="Arial,sans-serif">VISA</text></svg>
+        </div>
+        <!-- Mastercard -->
+        <div class="d9-pay-badge">
+          <svg viewBox="0 0 36 24" width="36" height="24"><circle cx="13" cy="12" r="9" fill="#EB001B"/><circle cx="23" cy="12" r="9" fill="#F79E1B"/><path d="M18 5.8a9 9 0 0 1 0 12.4A9 9 0 0 1 18 5.8z" fill="#FF5F00"/></svg>
+        </div>
+        <!-- Mada -->
+        <div class="d9-pay-badge d9-pay-badge--white">
+          <svg viewBox="0 0 50 16" width="44" height="16"><text x="0" y="13" font-size="13" font-weight="800" fill="#2E3191" font-family="Arial,sans-serif">mada</text></svg>
+        </div>
+        <!-- Apple Pay -->
+        <div class="d9-pay-badge d9-pay-badge--dark">
+          <svg viewBox="0 0 50 20" width="48" height="20"><text x="2" y="14" font-size="11" font-weight="500" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Arial">⌘ Pay</text></svg>
+        </div>
+        <!-- STC Pay -->
+        <div class="d9-pay-badge d9-pay-badge--purple">
+          <svg viewBox="0 0 50 16" width="44" height="16"><text x="1" y="12" font-size="11" font-weight="800" fill="#fff" font-family="Arial,sans-serif">STC Pay</text></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Bottom bar ── -->
+  <div class="d9-footer__bottom">
+    <div class="container d9-footer__bottom-inner">
+      <span class="d9-footer__copy">
+        © {{ 'now' | date: '%Y' }}
+        <strong>{%- if shop.locale == 'ar' -%}دكان 9{%- else -%}Dukkan9{%- endif -%}</strong>
+        — {%- if shop.locale == 'ar' -%}جميع الحقوق محفوظة{%- else -%}All rights reserved{%- endif -%}
+      </span>
+      <div class="d9-footer__bottom-links">
+        <a href="/policies/privacy-policy">{%- if shop.locale == 'ar' -%}الخصوصية{%- else -%}Privacy{%- endif -%}</a>
+        <span class="d9-footer__dot">·</span>
+        <a href="/policies/refund-policy">{%- if shop.locale == 'ar' -%}الاسترجاع{%- else -%}Returns{%- endif -%}</a>
+        <span class="d9-footer__dot">·</span>
+        <a href="/policies/shipping-policy">{%- if shop.locale == 'ar' -%}الشحن{%- else -%}Shipping{%- endif -%}</a>
+        <span class="d9-footer__dot">·</span>
+        <a href="/policies/terms-of-service">{%- if shop.locale == 'ar' -%}الشروط{%- else -%}Terms{%- endif -%}</a>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "description_ar",
+      "label": "Brand description (AR - العربية)",
+      "default": "متجرك المفضل للمنتجات عالية الجودة — كل ما تحتاجه في مكان واحد."
+    },
+    {
+      "type": "textarea",
+      "id": "description_en",
+      "label": "Brand description (EN)",
+      "default": "Your favorite store for high-quality products — everything you need in one place."
+    },
+    { "type": "link_list", "id": "nav_menu", "label": "Quick links menu", "default": "main-menu" },
+    { "type": "header",    "content": "Social Media" },
+    { "type": "text", "id": "instagram", "label": "Instagram URL" },
+    { "type": "text", "id": "tiktok",    "label": "TikTok URL" },
+    { "type": "text", "id": "snapchat",  "label": "Snapchat URL" },
+    { "type": "text", "id": "twitter",   "label": "Twitter / X URL" },
+    { "type": "text", "id": "whatsapp",  "label": "WhatsApp (with country code, e.g. +966501234567)" },
+    { "type": "header", "content": "Contact Info" },
+    { "type": "text", "id": "email",   "label": "Email address" },
+    { "type": "text", "id": "address", "label": "Store address" }
+  ],
+  "presets": [{ "name": "Footer" }]
+}
+{% endschema %}

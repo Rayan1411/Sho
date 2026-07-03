@@ -1,0 +1,70 @@
+{%- liquid
+  assign collection = collections[section.settings.collection]
+  if shop.locale == 'ar'
+    assign s_eyebrow  = section.settings.eyebrow_ar  | default: 'منتجاتنا'
+    assign s_title    = section.settings.title_ar    | default: 'المنتجات المميزة'
+    assign s_subtitle = section.settings.subtitle_ar
+    assign s_viewall  = 'عرض الكل'
+  else
+    assign s_eyebrow  = section.settings.eyebrow_en  | default: 'Our Products'
+    assign s_title    = section.settings.title_en    | default: 'Featured Products'
+    assign s_subtitle = section.settings.subtitle_en
+    assign s_viewall  = 'View All'
+  endif
+-%}
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      {%- if s_eyebrow != blank -%}
+        <div class="eyebrow">{{ s_eyebrow }}</div>
+      {%- endif -%}
+      <h2>{{ s_title | default: collection.title }}</h2>
+      {%- if s_subtitle != blank -%}
+        <p>{{ s_subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="product-grid">
+      {%- if collection != blank -%}
+        {%- for product in collection.products limit: section.settings.products_count -%}
+          {%- render 'product-card', product: product -%}
+        {%- endfor -%}
+      {%- else -%}
+        <p style="grid-column:1/-1;text-align:center;color:var(--c-text-m);padding:48px 0;">
+          {%- if shop.locale == 'ar' -%}
+            اختر تصنيفاً من إعدادات القالب لعرض المنتجات هنا
+          {%- else -%}
+            Select a collection in theme settings to display products here
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_view_all and collection != blank -%}
+      <div style="text-align:center;margin-top:40px;">
+        <a href="{{ collection.url }}" class="btn btn-outline">{{ s_viewall }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    { "type": "collection", "id": "collection",     "label": "Collection" },
+    { "type": "range",      "id": "products_count", "label": "Products to show", "min": 2, "max": 12, "step": 1, "default": 8 },
+    { "type": "checkbox",   "id": "show_view_all",  "label": "Show View All button", "default": true },
+    { "type": "header",   "content": "Arabic (العربية)" },
+    { "type": "text",     "id": "eyebrow_ar",  "label": "Eyebrow (AR)",  "default": "منتجاتنا" },
+    { "type": "text",     "id": "title_ar",    "label": "Title (AR)",    "default": "المنتجات المميزة" },
+    { "type": "textarea", "id": "subtitle_ar", "label": "Subtitle (AR)" },
+    { "type": "header",   "content": "English" },
+    { "type": "text",     "id": "eyebrow_en",  "label": "Eyebrow (EN)",  "default": "Our Products" },
+    { "type": "text",     "id": "title_en",    "label": "Title (EN)",    "default": "Featured Products" },
+    { "type": "textarea", "id": "subtitle_en", "label": "Subtitle (EN)" }
+  ],
+  "presets": [{ "name": "Featured Products" }]
+}
+{% endschema %}
