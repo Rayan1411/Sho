@@ -1,0 +1,75 @@
+<section class="section usp-section">
+  <div class="container">
+    <div class="usp-grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          if shop.locale == 'ar'
+            assign usp_title = block.settings.title_ar | default: block.settings.title
+            assign usp_text  = block.settings.text_ar  | default: block.settings.text
+          else
+            assign usp_title = block.settings.title_en | default: block.settings.title
+            assign usp_text  = block.settings.text_en  | default: block.settings.text
+          endif
+        -%}
+        <div class="usp-card" {{ block.shopify_attributes }}>
+          <div class="usp-card__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'shipping' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              {%- when 'security' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {%- when 'return' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+              {%- when 'support' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              {%- when 'gift' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            {%- endcase -%}
+          </div>
+          <h3>{{ usp_title }}</h3>
+          <p>{{ usp_text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "USP Features",
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "options": [
+            { "value": "shipping",  "label": "Shipping"  },
+            { "value": "security",  "label": "Security"  },
+            { "value": "return",    "label": "Returns"   },
+            { "value": "support",   "label": "Support"   },
+            { "value": "gift",      "label": "Gift"      },
+            { "value": "check",     "label": "Check"     }
+          ], "default": "shipping" },
+        { "type": "header",   "content": "Arabic (العربية)" },
+        { "type": "text",     "id": "title_ar", "label": "Title (AR)", "default": "شحن سريع" },
+        { "type": "textarea", "id": "text_ar",  "label": "Text (AR)",  "default": "توصيل خلال 1-3 أيام عمل" },
+        { "type": "header",   "content": "English" },
+        { "type": "text",     "id": "title_en", "label": "Title (EN)", "default": "Fast Shipping" },
+        { "type": "textarea", "id": "text_en",  "label": "Text (EN)",  "default": "Delivery within 1-3 business days" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{
+    "name": "USP Features",
+    "blocks": [
+      { "type": "feature", "settings": { "icon": "shipping", "title_ar": "شحن سريع",          "text_ar": "توصيل خلال 1-3 أيام عمل لجميع مناطق المملكة",       "title_en": "Fast Shipping",     "text_en": "Delivery within 1-3 business days across Saudi Arabia" } },
+      { "type": "feature", "settings": { "icon": "security", "title_ar": "دفع آمن 100%",        "text_ar": "جميع المعاملات مشفرة ومحمية بأحدث تقنيات الأمان",  "title_en": "Secure Payment",    "text_en": "All transactions encrypted with the latest security" } },
+      { "type": "feature", "settings": { "icon": "return",   "title_ar": "إرجاع مجاني",          "text_ar": "سياسة إرجاع مرنة خلال 14 يومًا بدون أي تعقيدات",  "title_en": "Free Returns",      "text_en": "Flexible 14-day return policy with no hassle" } },
+      { "type": "feature", "settings": { "icon": "support",  "title_ar": "دعم 24/7",              "text_ar": "فريق خدمة العملاء جاهز لمساعدتك على مدار الساعة", "title_en": "24/7 Support",      "text_en": "Our customer service team is ready to help anytime" } }
+    ]
+  }]
+}
+{% endschema %}

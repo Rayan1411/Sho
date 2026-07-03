@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "announcement": { "type": "announcement" },
+    "hero":         { "type": "hero" },
+    "collections":  { "type": "featured-collections" },
+    "products":     { "type": "featured-products" },
+    "usp":          { "type": "usp-features" },
+    "newsletter":   { "type": "newsletter" }
+  },
+  "order": ["announcement","hero","collections","products","usp","newsletter"]
+}

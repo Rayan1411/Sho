@@ -1,0 +1,80 @@
+<div class="container">
+  {%- if cart.item_count > 0 -%}
+    <div class="cart-layout">
+
+      <!-- Items -->
+      <div>
+        <h1 style="margin-bottom:24px;">{{ 'cart.general.title' | t }}</h1>
+        <div class="cart-items">
+          {%- for item in cart.items -%}
+            <div class="cart-item">
+              <a href="{{ item.url }}" class="cart-item__image">
+                <img src="{{ item.image | img_url: '200x200', crop: 'center' }}" alt="{{ item.title | escape }}" loading="lazy" width="100" height="100">
+              </a>
+              <div class="cart-item__body">
+                <div class="cart-item__title">
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                </div>
+                {%- unless item.variant.title == 'Default Title' -%}
+                  <div class="cart-item__variant">{{ item.variant.title }}</div>
+                {%- endunless -%}
+                <div class="qty-selector" style="margin-bottom:8px;">
+                  <button type="button" data-minus>−</button>
+                  <input type="number" value="{{ item.quantity }}" min="1"
+                         onchange="Noor.updateCart('{{ item.key }}', this.value)">
+                  <button type="button" data-plus>+</button>
+                </div>
+                <button class="cart-item__remove" data-key="{{ item.key }}">
+                  {{ 'cart.general.remove' | t }}
+                </button>
+              </div>
+              <div class="cart-item__price">{{ item.final_line_price | money }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div class="cart-summary">
+        <h2>{{ 'cart.label.total' | t }}</h2>
+        <div class="cart-summary__row">
+          <span>{{ 'cart.general.subtotal' | t }}</span>
+          <span>{{ cart.total_price | money }}</span>
+        </div>
+        <p class="cart-summary__tax">{{ 'cart.general.taxes_and_shipping_at_checkout' | t }}</p>
+        <a href="/checkout" class="btn btn-primary btn-full" style="margin-bottom:12px;">
+          {{ 'cart.general.checkout' | t }}
+        </a>
+        <a href="/" class="btn btn-outline btn-full">{{ 'cart.general.continue_browsing_html' | t }}</a>
+      </div>
+
+    </div>
+  {%- else -%}
+    <div class="cart-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <h2>{{ 'cart.general.empty' | t }}</h2>
+      <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+      <a href="/" class="btn btn-primary">{{ 'collections.general.catalog_title' | t }}</a>
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+window.Noor = window.Noor || {};
+Noor.updateCart = async function(key, qty) {
+  await fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: key, quantity: parseInt(qty) })
+  });
+  window.location.reload();
+};
+</script>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": [],
+  "presets": [{ "name": "Cart" }]
+}
+{% endschema %}
