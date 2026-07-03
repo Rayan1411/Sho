@@ -1,0 +1,29 @@
+{%- if paginate.pages > 1 -%}
+  <nav class="pagination" aria-label="pagination">
+    {%- if paginate.previous -%}
+      <a href="{{ paginate.previous.url }}" class="prev" aria-label="{{ 'general.pagination.previous' | t }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+        {{ 'general.pagination.previous' | t }}
+      </a>
+    {%- endif -%}
+
+    {%- for part in paginate.parts -%}
+      {%- if part.is_link -%}
+        <a href="{{ part.url }}">{{ part.title }}</a>
+      {%- else -%}
+        {%- if part.title == paginate.current_page -%}
+          <span class="current">{{ part.title }}</span>
+        {%- else -%}
+          <span>{{ part.title }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if paginate.next -%}
+      <a href="{{ paginate.next.url }}" class="next" aria-label="{{ 'general.pagination.next' | t }}">
+        {{ 'general.pagination.next' | t }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    {%- endif -%}
+  </nav>
+{%- endif -%}

@@ -1,0 +1,32 @@
+{%- if section.settings.show_announcement -%}
+<div class="announcement-bar">
+  {%- if section.settings.announcement_link != blank -%}
+    <a href="{{ section.settings.announcement_link }}">
+      {%- if shop.locale == 'ar' -%}
+        {{ section.settings.text_ar | default: '🚚 شحن مجاني للطلبات فوق 200 ريال' }}
+      {%- else -%}
+        {{ section.settings.text_en | default: '🚚 Free shipping on orders over 200 SAR' }}
+      {%- endif -%}
+    </a>
+  {%- else -%}
+    {%- if shop.locale == 'ar' -%}
+      {{ section.settings.text_ar | default: '🚚 شحن مجاني للطلبات فوق 200 ريال' }}
+    {%- else -%}
+      {{ section.settings.text_en | default: '🚚 Free shipping on orders over 200 SAR' }}
+    {%- endif -%}
+  {%- endif -%}
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    { "type": "checkbox", "id": "show_announcement", "label": "Show announcement bar", "default": true },
+    { "type": "text", "id": "text_ar", "label": "Arabic text", "default": "🚚 شحن مجاني للطلبات فوق 200 ريال" },
+    { "type": "text", "id": "text_en", "label": "English text", "default": "🚚 Free shipping on orders over 200 SAR" },
+    { "type": "url",  "id": "announcement_link", "label": "Link (optional)" }
+  ],
+  "presets": [{ "name": "Announcement Bar" }]
+}
+{% endschema %}

@@ -1,0 +1,70 @@
+{%- liquid
+  if shop.locale == 'ar'
+    assign eyebrow = section.settings.eyebrow_ar | default: 'مرحباً بك'
+    assign title   = section.settings.title_ar   | default: 'اكتشف أفضل المنتجات بأسعار لا تُقاوم'
+    assign sub     = section.settings.text_ar    | default: 'جودة عالية، شحن سريع، وخدمة عملاء متميزة على مدار الساعة'
+    assign btn1    = section.settings.btn1_ar    | default: 'تسوق الآن'
+    assign btn2    = section.settings.btn2_ar    | default: 'اعرف أكثر'
+  else
+    assign eyebrow = section.settings.eyebrow_en | default: 'Welcome'
+    assign title   = section.settings.title_en   | default: 'Discover the Best Products at Unbeatable Prices'
+    assign sub     = section.settings.text_en    | default: 'High quality, fast shipping, and exceptional customer service around the clock'
+    assign btn1    = section.settings.btn1_en    | default: 'Shop Now'
+    assign btn2    = section.settings.btn2_en    | default: 'Learn More'
+  endif
+-%}
+
+<section class="hero{% unless section.settings.image %} hero--no-image{% endunless %}">
+  {%- if section.settings.image -%}
+    <div class="hero__media">
+      <img src="{{ section.settings.image | img_url: '1800x900', crop: 'center' }}"
+           alt="{{ title | escape }}" loading="eager" fetchpriority="high">
+    </div>
+    <div class="hero__overlay"></div>
+  {%- endif -%}
+
+  <div class="container">
+    <div class="hero__content">
+      {%- if eyebrow != blank -%}
+        <div class="hero__eyebrow">{{ eyebrow }}</div>
+      {%- endif -%}
+      <h1 class="hero__title">{{ title }}</h1>
+      {%- if sub != blank -%}
+        <p class="hero__sub">{{ sub }}</p>
+      {%- endif -%}
+      <div class="hero__cta">
+        {%- if btn1 != blank -%}
+          <a href="{{ section.settings.btn1_link }}" class="btn btn-accent">{{ btn1 }}</a>
+        {%- endif -%}
+        {%- if btn2 != blank -%}
+          <a href="{{ section.settings.btn2_link }}" class="btn btn-outline-white">{{ btn2 }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "header", "content": "Arabic Content (العربية)" },
+    { "type": "text",     "id": "eyebrow_ar", "label": "Eyebrow (AR)",  "default": "مرحباً بك" },
+    { "type": "text",     "id": "title_ar",   "label": "Title (AR)",    "default": "اكتشف أفضل المنتجات بأسعار لا تُقاوم" },
+    { "type": "textarea", "id": "text_ar",    "label": "Subtitle (AR)", "default": "جودة عالية، شحن سريع، وخدمة عملاء متميزة على مدار الساعة" },
+    { "type": "text",     "id": "btn1_ar",    "label": "Button 1 (AR)", "default": "تسوق الآن" },
+    { "type": "text",     "id": "btn2_ar",    "label": "Button 2 (AR)", "default": "اعرف أكثر" },
+    { "type": "header", "content": "English Content" },
+    { "type": "text",     "id": "eyebrow_en", "label": "Eyebrow (EN)",  "default": "Welcome" },
+    { "type": "text",     "id": "title_en",   "label": "Title (EN)",    "default": "Discover the Best Products at Unbeatable Prices" },
+    { "type": "textarea", "id": "text_en",    "label": "Subtitle (EN)", "default": "High quality, fast shipping, and exceptional customer service around the clock" },
+    { "type": "text",     "id": "btn1_en",    "label": "Button 1 (EN)", "default": "Shop Now" },
+    { "type": "text",     "id": "btn2_en",    "label": "Button 2 (EN)", "default": "Learn More" },
+    { "type": "header", "content": "Button Links" },
+    { "type": "url", "id": "btn1_link", "label": "Button 1 link" },
+    { "type": "url", "id": "btn2_link", "label": "Button 2 link" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

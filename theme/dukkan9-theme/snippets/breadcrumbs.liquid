@@ -1,0 +1,42 @@
+<nav class="breadcrumbs" aria-label="breadcrumb">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">{{ 'general.drawers.navigation' | t | default: 'الرئيسية' }}</span></a>
+        <meta itemprop="position" content="1">
+        <span class="breadcrumbs__sep">›</span>
+      </li>
+      {%- if template == 'product' -%}
+        {%- if collection -%}
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="{{ collection.url }}" itemprop="item"><span itemprop="name">{{ collection.title }}</span></a>
+            <meta itemprop="position" content="2">
+            <span class="breadcrumbs__sep">›</span>
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">{{ product.title }}</span>
+            <meta itemprop="position" content="3">
+          </li>
+        {%- else -%}
+          <li><span>{{ product.title }}</span></li>
+        {%- endif -%}
+      {%- elsif template == 'collection' -%}
+        <li><span>{{ collection.title }}</span></li>
+      {%- elsif template == 'page' -%}
+        <li><span>{{ page.title }}</span></li>
+      {%- elsif template == 'blog' -%}
+        <li><span>{{ blog.title }}</span></li>
+      {%- elsif template == 'article' -%}
+        <li>
+          <a href="{{ blog.url }}">{{ blog.title }}</a>
+          <span class="breadcrumbs__sep">›</span>
+        </li>
+        <li><span>{{ article.title }}</span></li>
+      {%- elsif template == 'cart' -%}
+        <li><span>{{ 'cart.general.title' | t }}</span></li>
+      {%- elsif template == 'search' -%}
+        <li><span>{{ 'general.search.title' | t }}</span></li>
+      {%- endif -%}
+    </ol>
+  </div>
+</nav>

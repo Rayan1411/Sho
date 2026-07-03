@@ -1,0 +1,322 @@
+{
+  "general": {
+    "accessibility": {
+      "refresh_page": "Selecting an option will refresh the page.",
+      "unit_price_separator": "per"
+    },
+    "meta": {
+      "tags": "Tagged with \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "404": {
+      "title": "Page not found",
+      "subtext_html": "The page you were looking for does not exist."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "password_page": {
+      "login_form_heading": "Enter store using password",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We'll send you an email before we open!",
+      "admin_link_html": "Store owner? <a href=\"/admin\">Log in here</a>",
+      "close": "Close"
+    },
+    "newsletter_form": {
+      "newsletter_email": "Subscribe to our newsletter",
+      "newsletter_placeholder": "Your email",
+      "newsletter_confirmation": "Thanks for subscribing!",
+      "submit": "Subscribe"
+    },
+    "search": {
+      "no_results_html": "No results for \"{{ terms }}\".",
+      "results_for_html": "Search results for \"{{ terms }}\":",
+      "title": "Search",
+      "placeholder": "Search our store...",
+      "submit": "Search"
+    },
+    "drawers": {
+      "navigation": "Menu",
+      "close_menu": "Close menu",
+      "expand_submenu": "Expand",
+      "collapse_submenu": "Collapse"
+    },
+    "language": {
+      "dropdown_label": "Language"
+    },
+    "currency": {
+      "dropdown_label": "Currency"
+    },
+    "localization": {
+      "submit_label": "Update"
+    }
+  },
+  "blogs": {
+    "article": {
+      "tags": "Tags",
+      "read_more": "Read more",
+      "view_all": "View all",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments need to be approved before they are published.",
+      "success_moderated": "Your comment was submitted successfully.",
+      "success": "Your comment was posted successfully!",
+      "with_count": {
+        "one": "1 comment",
+        "other": "{{ count }} comments"
+      }
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Cart",
+      "remove": "Remove",
+      "note": "Special instructions",
+      "subtotal": "Subtotal",
+      "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
+      "taxes_included_but_shipping_at_checkout": "Tax included. Shipping calculated at checkout",
+      "update": "Update cart",
+      "checkout": "Check out",
+      "empty": "Your cart is currently empty.",
+      "continue_browsing_html": "Continue shopping",
+      "close_cart": "Close cart",
+      "savings_html": "You're saving {{ savings }}"
+    },
+    "label": {
+      "quantity": "Quantity",
+      "total": "Total"
+    }
+  },
+  "collections": {
+    "general": {
+      "catalog_title": "Products",
+      "all_of_collection": "All",
+      "no_matches": "Sorry, there are no products in this collection."
+    },
+    "sorting": {
+      "title": "Sort by",
+      "title_tags": "Filter by",
+      "all_of_collection": "All {{ collection }}"
+    },
+    "grid": {
+      "button_label": "Shop now"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "send": "Send",
+      "post_success": "Thanks for contacting us. We'll get back to you as soon as possible."
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "My Account",
+      "details": "Account Details",
+      "view_addresses": "View Addresses",
+      "return": "Return to account details"
+    },
+    "activate_account": {
+      "title": "Activate Account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Activate Account"
+    },
+    "addresses": {
+      "title": "Your Addresses",
+      "default": "Default",
+      "add_new": "Add a new address",
+      "edit_address": "Edit address",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal Code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add Address",
+      "update": "Update Address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "sign_in": "Sign in",
+      "cancel": "Return to store",
+      "guest_title": "Continue as Guest",
+      "guest_continue": "Continue"
+    },
+    "orders": {
+      "title": "Order History",
+      "order_number": "Order",
+      "date": "Date",
+      "payment_status": "Payment Status",
+      "fulfillment_status": "Fulfillment Status",
+      "total": "Total",
+      "none": "You haven't placed any orders yet."
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date": "Placed on {{ date }}",
+      "cancelled": "Order Cancelled",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "track_shipment": "Track Shipment"
+    },
+    "recover_password": {
+      "title": "Reset Password",
+      "email": "Email",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "subtext": "We'll send you an email to reset your password.",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password for {{ email }}",
+      "password": "New Password",
+      "password_confirm": "Confirm New Password",
+      "submit": "Reset Password"
+    },
+    "register": {
+      "title": "Create Account",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create",
+      "cancel": "Return to store"
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "Cart"
+    },
+    "customer": {
+      "account": "Account",
+      "log_out": "Log out",
+      "log_in": "Log in",
+      "create_account": "Create account"
+    },
+    "footer": {
+      "social_platform": "{{ name }} on {{ platform }}"
+    }
+  },
+  "products": {
+    "general": {
+      "save_html": "Save {{ saved_amount }}",
+      "collection_return": "Back to {{ collection }}",
+      "sale_price": "Sale price",
+      "regular_price": "Regular price",
+      "include_taxes": "Tax included.",
+      "shipping_policy_html": "Shipping calculated at checkout.",
+      "unit_price": "Unit price"
+    },
+    "product": {
+      "sold_out": "Sold out",
+      "sold_out_html": "Sold out",
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "add_to_cart": "Add to cart",
+      "adding": "Adding...",
+      "added": "Added ✓",
+      "error": "Error",
+      "view_more": "View more",
+      "shipping_note": "Fast shipping in 1-3 business days",
+      "secure_payment": "100% Secure payment",
+      "return_policy": "Free returns within 14 days"
+    }
+  },
+  "date_formats": {
+    "month_day_year": "%b %d, %Y"
+  },
+  "sections": {
+    "announcement": {
+      "text": "🚚 Free shipping on orders over 200 SAR"
+    },
+    "hero": {
+      "eyebrow": "Welcome",
+      "title": "Discover the Best Products at Unbeatable Prices",
+      "subtitle": "High quality, fast shipping, and exceptional customer service around the clock",
+      "btn1": "Shop Now",
+      "btn2": "Learn More"
+    },
+    "featured_collections": {
+      "eyebrow": "Browse",
+      "title": "Shop by Category",
+      "shop_now": "Shop Now"
+    },
+    "newsletter": {
+      "eyebrow": "Newsletter",
+      "title": "Subscribe & Get 10% Off",
+      "subtitle": "Be the first to know about offers and new products",
+      "placeholder": "Your email address",
+      "btn": "Subscribe"
+    },
+    "usp": {
+      "eyebrow": "Why Dukkan9?",
+      "title": "Our Advantages",
+      "shipping_title": "Fast Shipping",
+      "shipping_desc": "Delivery within 1-3 business days across Saudi Arabia",
+      "returns_title": "Free Returns",
+      "returns_desc": "Flexible 14-day return policy with no hassle",
+      "support_title": "24/7 Support",
+      "support_desc": "Our customer service team is ready to help you around the clock",
+      "secure_title": "Secure Payment",
+      "secure_desc": "All transactions are encrypted with the latest security technology"
+    },
+    "footer": {
+      "tagline": "🛍️ Everything you need in one place — Quality products, Fast shipping, 24/7 support",
+      "quick_links": "Quick Links",
+      "policies": "Our Policies",
+      "contact": "Get in Touch",
+      "home": "Home",
+      "all_products": "All Products",
+      "contact_us": "Contact Us",
+      "privacy": "Privacy Policy",
+      "refund": "Return & Refund Policy",
+      "shipping": "Shipping Policy",
+      "terms": "Terms of Service",
+      "payments": "Accepted payments:",
+      "rights": "All rights reserved",
+      "privacy_short": "Privacy",
+      "refund_short": "Returns",
+      "shipping_short": "Shipping",
+      "terms_short": "Terms",
+      "description": "Your favorite store for high-quality products — everything you need in one place."
+    }
+  }
+}

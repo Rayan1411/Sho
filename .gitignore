@@ -1,0 +1,31 @@
+```
+# Shopify theme specific ignores
+theme/*/assets/*.map
+theme/*/config/settings_data.json
+theme/*/snippets/__MACOSX/
+
+# Dependencies
+node_modules/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+target/
+```
