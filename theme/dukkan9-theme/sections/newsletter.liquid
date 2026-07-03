@@ -1,0 +1,58 @@
+{%- liquid
+  if shop.locale == 'ar'
+    assign s_eyebrow = section.settings.eyebrow_ar | default: 'النشرة البريدية'
+    assign s_title   = section.settings.title_ar   | default: 'اشترك واحصل على خصم 10%'
+    assign s_sub     = section.settings.text_ar    | default: 'كن أول من يعلم بالعروض والمنتجات الجديدة'
+    assign s_ph      = section.settings.ph_ar      | default: 'بريدك الإلكتروني'
+    assign s_btn     = section.settings.btn_ar     | default: 'اشتراك'
+  else
+    assign s_eyebrow = section.settings.eyebrow_en | default: 'Newsletter'
+    assign s_title   = section.settings.title_en   | default: 'Subscribe & Get 10% Off'
+    assign s_sub     = section.settings.text_en    | default: 'Be the first to know about offers and new products'
+    assign s_ph      = section.settings.ph_en      | default: 'Your email address'
+    assign s_btn     = section.settings.btn_en     | default: 'Subscribe'
+  endif
+-%}
+
+<section class="section newsletter-section">
+  <div class="container text-center">
+    <div class="newsletter">
+      <div class="eyebrow" style="color:rgba(255,255,255,.7);">{{ s_eyebrow }}</div>
+      <h2>{{ s_title }}</h2>
+      <p>{{ s_sub }}</p>
+      {%- form 'customer', id: 'newsletterForm' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="newsletter-form">
+          <input type="email" name="contact[email]" placeholder="{{ s_ph }}" required autocomplete="email">
+          <button type="submit">{{ s_btn }}</button>
+        </div>
+        {%- if form.posted_successfully? -%}
+          <p id="newsletterMsg" style="color:rgba(255,255,255,.9);margin-top:12px;">
+            {{ 'general.newsletter_form.newsletter_confirmation' | t }}
+          </p>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    { "type": "header", "content": "Arabic (العربية)" },
+    { "type": "text",     "id": "eyebrow_ar", "label": "Eyebrow (AR)",     "default": "النشرة البريدية" },
+    { "type": "text",     "id": "title_ar",   "label": "Title (AR)",       "default": "اشترك واحصل على خصم 10%" },
+    { "type": "textarea", "id": "text_ar",    "label": "Subtitle (AR)",    "default": "كن أول من يعلم بالعروض والمنتجات الجديدة" },
+    { "type": "text",     "id": "ph_ar",      "label": "Placeholder (AR)", "default": "بريدك الإلكتروني" },
+    { "type": "text",     "id": "btn_ar",     "label": "Button (AR)",      "default": "اشتراك" },
+    { "type": "header", "content": "English" },
+    { "type": "text",     "id": "eyebrow_en", "label": "Eyebrow (EN)",     "default": "Newsletter" },
+    { "type": "text",     "id": "title_en",   "label": "Title (EN)",       "default": "Subscribe & Get 10% Off" },
+    { "type": "textarea", "id": "text_en",    "label": "Subtitle (EN)",    "default": "Be the first to know about offers and new products" },
+    { "type": "text",     "id": "ph_en",      "label": "Placeholder (EN)", "default": "Your email address" },
+    { "type": "text",     "id": "btn_en",     "label": "Button (EN)",      "default": "Subscribe" }
+  ],
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

@@ -1,0 +1,322 @@
+{
+  "general": {
+    "accessibility": {
+      "refresh_page": "سيؤدي اختيار أحد الخيارات إلى تحديث الصفحة.",
+      "unit_price_separator": "لكل"
+    },
+    "meta": {
+      "tags": "موسوم بـ \"{{ tags }}\"",
+      "page": "الصفحة {{ page }}"
+    },
+    "404": {
+      "title": "الصفحة غير موجودة",
+      "subtext_html": "الصفحة التي تبحث عنها غير موجودة."
+    },
+    "pagination": {
+      "previous": "السابق",
+      "next": "التالي"
+    },
+    "password_page": {
+      "login_form_heading": "أدخل المتجر بكلمة المرور",
+      "login_form_password_label": "كلمة المرور",
+      "login_form_password_placeholder": "كلمة المرور",
+      "login_form_submit": "دخول",
+      "signup_form_email_label": "البريد الإلكتروني",
+      "signup_form_success": "سنرسل لك بريدًا قبل الافتتاح!",
+      "admin_link_html": "مالك المتجر؟ <a href=\"/admin\">سجّل دخولك</a>",
+      "close": "إغلاق"
+    },
+    "newsletter_form": {
+      "newsletter_email": "اشترك في قائمتنا البريدية",
+      "newsletter_placeholder": "بريدك الإلكتروني",
+      "newsletter_confirmation": "شكرًا على اشتراكك!",
+      "submit": "اشتراك"
+    },
+    "search": {
+      "no_results_html": "لا توجد نتائج لـ \"{{ terms }}\".",
+      "results_for_html": "نتائج البحث عن \"{{ terms }}\":",
+      "title": "بحث",
+      "placeholder": "ابحث في المتجر...",
+      "submit": "بحث"
+    },
+    "drawers": {
+      "navigation": "القائمة",
+      "close_menu": "إغلاق القائمة",
+      "expand_submenu": "توسيع",
+      "collapse_submenu": "طي"
+    },
+    "language": {
+      "dropdown_label": "اللغة"
+    },
+    "currency": {
+      "dropdown_label": "العملة"
+    },
+    "localization": {
+      "submit_label": "تحديث"
+    }
+  },
+  "blogs": {
+    "article": {
+      "tags": "الوسوم",
+      "read_more": "اقرأ المزيد",
+      "view_all": "عرض الكل",
+      "back_to_blog": "العودة إلى {{ title }}"
+    },
+    "comments": {
+      "title": "اترك تعليقًا",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "message": "الرسالة",
+      "post": "نشر",
+      "moderated": "التعليقات تخضع للمراجعة قبل النشر.",
+      "success_moderated": "تم نشر تعليقك وسيظهر قريبًا.",
+      "success": "تم نشر تعليقك بنجاح!",
+      "with_count": {
+        "one": "تعليق واحد",
+        "other": "{{ count }} تعليقات"
+      }
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "سلة التسوق",
+      "remove": "إزالة",
+      "note": "تعليمات خاصة",
+      "subtotal": "المجموع الفرعي",
+      "taxes_and_shipping_at_checkout": "الضرائب والشحن تُحسب عند الدفع",
+      "taxes_included_but_shipping_at_checkout": "الضريبة مشمولة والشحن يُحسب عند الدفع",
+      "update": "تحديث السلة",
+      "checkout": "إتمام الشراء",
+      "empty": "سلة التسوق فارغة.",
+      "continue_browsing_html": "متابعة التسوق",
+      "close_cart": "إغلاق السلة",
+      "savings_html": "توفيرك {{ savings }}"
+    },
+    "label": {
+      "quantity": "الكمية",
+      "total": "الإجمالي"
+    }
+  },
+  "collections": {
+    "general": {
+      "catalog_title": "المنتجات",
+      "all_of_collection": "الكل",
+      "no_matches": "لا توجد منتجات في هذه المجموعة."
+    },
+    "sorting": {
+      "title": "ترتيب حسب",
+      "title_tags": "تصفية",
+      "all_of_collection": "كل {{ collection }}"
+    },
+    "grid": {
+      "button_label": "تسوق الآن"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "message": "الرسالة",
+      "send": "إرسال",
+      "post_success": "شكرًا على تواصلك. سنرد عليك قريبًا."
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "حسابي",
+      "details": "تفاصيل الحساب",
+      "view_addresses": "عرض العناوين",
+      "return": "العودة للحساب"
+    },
+    "activate_account": {
+      "title": "تفعيل الحساب",
+      "subtext": "أنشئ كلمة مرورك لتفعيل الحساب.",
+      "password": "كلمة المرور",
+      "password_confirm": "تأكيد كلمة المرور",
+      "submit": "تفعيل"
+    },
+    "addresses": {
+      "title": "عناوينك",
+      "default": "افتراضي",
+      "add_new": "إضافة عنوان",
+      "edit_address": "تعديل العنوان",
+      "first_name": "الاسم الأول",
+      "last_name": "الاسم الأخير",
+      "company": "الشركة",
+      "address1": "العنوان",
+      "address2": "العنوان (تكملة)",
+      "city": "المدينة",
+      "country": "الدولة",
+      "province": "المنطقة",
+      "zip": "الرمز البريدي",
+      "phone": "الهاتف",
+      "set_default": "تعيين كعنوان افتراضي",
+      "add": "إضافة",
+      "update": "تحديث",
+      "cancel": "إلغاء",
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "forgot_password": "نسيت كلمة المرور؟",
+      "sign_in": "دخول",
+      "cancel": "العودة للمتجر",
+      "guest_title": "متابعة كزائر",
+      "guest_continue": "متابعة"
+    },
+    "orders": {
+      "title": "طلباتي",
+      "order_number": "رقم الطلب",
+      "date": "التاريخ",
+      "payment_status": "حالة الدفع",
+      "fulfillment_status": "حالة الشحن",
+      "total": "الإجمالي",
+      "none": "لم تقم بأي طلبات بعد."
+    },
+    "order": {
+      "title": "الطلب {{ name }}",
+      "date": "بتاريخ {{ date }}",
+      "cancelled": "تم إلغاء الطلب",
+      "billing_address": "عنوان الفاتورة",
+      "payment_status": "حالة الدفع",
+      "shipping_address": "عنوان الشحن",
+      "fulfillment_status": "حالة الشحن",
+      "discount": "الخصم",
+      "shipping": "الشحن",
+      "tax": "الضريبة",
+      "product": "المنتج",
+      "sku": "رمز المنتج",
+      "price": "السعر",
+      "quantity": "الكمية",
+      "total": "الإجمالي",
+      "subtotal": "المجموع الفرعي",
+      "track_shipment": "تتبع الشحنة"
+    },
+    "recover_password": {
+      "title": "استعادة كلمة المرور",
+      "email": "البريد الإلكتروني",
+      "submit": "إرسال",
+      "cancel": "إلغاء",
+      "subtext": "سنرسل لك رابط إعادة تعيين كلمة المرور.",
+      "success": "تم إرسال رابط استعادة كلمة المرور إلى بريدك."
+    },
+    "reset_password": {
+      "title": "إعادة تعيين كلمة المرور",
+      "subtext": "أدخل كلمة مرور جديدة لـ {{ email }}",
+      "password": "كلمة المرور الجديدة",
+      "password_confirm": "تأكيد كلمة المرور",
+      "submit": "إعادة التعيين"
+    },
+    "register": {
+      "title": "إنشاء حساب",
+      "first_name": "الاسم الأول",
+      "last_name": "الاسم الأخير",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "submit": "إنشاء الحساب",
+      "cancel": "العودة للمتجر"
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "السلة"
+    },
+    "customer": {
+      "account": "حسابي",
+      "log_out": "تسجيل الخروج",
+      "log_in": "تسجيل الدخول",
+      "create_account": "إنشاء حساب"
+    },
+    "footer": {
+      "social_platform": "{{ name }} على {{ platform }}"
+    }
+  },
+  "products": {
+    "general": {
+      "save_html": "وفّر {{ saved_amount }}",
+      "collection_return": "العودة إلى {{ collection }}",
+      "sale_price": "سعر التخفيض",
+      "regular_price": "السعر الأصلي",
+      "include_taxes": "الضريبة مشمولة.",
+      "shipping_policy_html": "الشحن يُحسب عند الدفع.",
+      "unit_price": "سعر الوحدة"
+    },
+    "product": {
+      "sold_out": "نفذ المخزون",
+      "sold_out_html": "نفذ المخزون",
+      "unavailable": "غير متاح",
+      "quantity": "الكمية",
+      "add_to_cart": "أضف إلى السلة",
+      "adding": "جاري الإضافة...",
+      "added": "تمت الإضافة ✓",
+      "error": "حدث خطأ",
+      "view_more": "عرض المزيد",
+      "shipping_note": "شحن سريع خلال 1-3 أيام عمل",
+      "secure_payment": "دفع آمن 100%",
+      "return_policy": "إرجاع مجاني خلال 14 يوم"
+    }
+  },
+  "date_formats": {
+    "month_day_year": "%d %b %Y"
+  },
+  "sections": {
+    "announcement": {
+      "text": "🚚 شحن مجاني للطلبات فوق 200 ريال"
+    },
+    "hero": {
+      "eyebrow": "مرحباً بك",
+      "title": "اكتشف أفضل المنتجات بأسعار لا تُقاوم",
+      "subtitle": "جودة عالية، شحن سريع، وخدمة عملاء متميزة على مدار الساعة",
+      "btn1": "تسوق الآن",
+      "btn2": "اعرف أكثر"
+    },
+    "featured_collections": {
+      "eyebrow": "تصفح",
+      "title": "تسوق حسب الفئة",
+      "shop_now": "تسوق الآن"
+    },
+    "newsletter": {
+      "eyebrow": "النشرة البريدية",
+      "title": "اشترك واحصل على خصم 10%",
+      "subtitle": "كن أول من يعلم بالعروض والمنتجات الجديدة",
+      "placeholder": "بريدك الإلكتروني",
+      "btn": "اشتراك"
+    },
+    "usp": {
+      "eyebrow": "لماذا دكان 9؟",
+      "title": "مميزاتنا",
+      "shipping_title": "شحن سريع",
+      "shipping_desc": "توصيل خلال 1-3 أيام عمل لجميع مناطق المملكة",
+      "returns_title": "إرجاع مجاني",
+      "returns_desc": "سياسة إرجاع مرنة خلال 14 يومًا بدون أي تعقيدات",
+      "support_title": "دعم 24/7",
+      "support_desc": "فريق خدمة العملاء جاهز لمساعدتك على مدار الساعة",
+      "secure_title": "دفع آمن",
+      "secure_desc": "جميع المعاملات مشفرة ومحمية بأحدث تقنيات الأمان"
+    },
+    "footer": {
+      "tagline": "🛍️ كل ما تحتاجه في مكان واحد — جودة عالية، شحن سريع، خدمة على مدار الساعة",
+      "quick_links": "روابط سريعة",
+      "policies": "السياسات",
+      "contact": "تواصل معنا",
+      "home": "الرئيسية",
+      "all_products": "جميع المنتجات",
+      "contact_us": "اتصل بنا",
+      "privacy": "سياسة الخصوصية",
+      "refund": "سياسة الاسترجاع والاستبدال",
+      "shipping": "سياسة الشحن والتوصيل",
+      "terms": "الشروط والأحكام",
+      "payments": "طرق الدفع المقبولة:",
+      "rights": "جميع الحقوق محفوظة",
+      "privacy_short": "الخصوصية",
+      "refund_short": "الاسترجاع",
+      "shipping_short": "الشحن",
+      "terms_short": "الشروط",
+      "description": "متجرك المفضل للمنتجات عالية الجودة — كل ما تحتاجه في مكان واحد."
+    }
+  }
+}

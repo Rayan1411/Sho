@@ -1,0 +1,22 @@
+<div class="container section">
+  <div class="breadcrumbs">
+    <a href="/">{%- if shop.locale == 'ar' -%}الرئيسية{%- else -%}Home{%- endif -%}</a>
+    <span class="breadcrumbs__sep">›</span>
+    <span>{{ policy.title }}</span>
+  </div>
+  <div style="max-width:760px;margin-inline:auto;">
+    <h1 style="margin-bottom:32px;color:var(--c-primary);">{{ policy.title }}</h1>
+    <div class="policy-body" style="line-height:1.9;color:var(--c-text-m);font-size:0.95rem;">
+      {{ policy.body }}
+    </div>
+  </div>
+</div>
+
+<style>
+.policy-body h2 { color: var(--c-text); margin: 32px 0 12px; font-size: 1.2rem; }
+.policy-body h3 { color: var(--c-text); margin: 24px 0 8px; font-size: 1rem; }
+.policy-body p  { margin-bottom: 16px; }
+.policy-body ul, .policy-body ol { padding-inline-start: 24px; margin-bottom: 16px; }
+.policy-body li { margin-bottom: 6px; }
+.policy-body a  { color: var(--c-primary); text-decoration: underline; }
+</style>
