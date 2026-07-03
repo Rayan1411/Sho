@@ -1,0 +1,54 @@
+<div class="container" style="padding-block:48px;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px;">
+    <h1>{{ 'customer.account.title' | t }}, {{ customer.first_name }}</h1>
+    <a href="/account/logout" class="btn btn-outline btn-sm">{{ 'layout.customer.log_out' | t }}</a>
+  </div>
+
+  <!-- Orders -->
+  <h2 style="margin-bottom:20px;font-size:1.2rem;">{{ 'customer.orders.title' | t }}</h2>
+  {%- if customer.orders.size > 0 -%}
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.9rem;{% if request.locale.iso_code == 'ar' %}direction:rtl;{% endif %}">
+        <thead>
+          <tr style="border-bottom:2px solid var(--c-border);">
+            <th style="padding:12px 8px;font-weight:700;text-align:start;">{{ 'customer.orders.order_number' | t }}</th>
+            <th style="padding:12px 8px;font-weight:700;text-align:start;">{{ 'customer.orders.date' | t }}</th>
+            <th style="padding:12px 8px;font-weight:700;text-align:start;">{{ 'customer.orders.payment_status' | t }}</th>
+            <th style="padding:12px 8px;font-weight:700;text-align:start;">{{ 'customer.orders.fulfillment_status' | t }}</th>
+            <th style="padding:12px 8px;font-weight:700;text-align:end;">{{ 'customer.orders.total' | t }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for order in customer.orders -%}
+            <tr style="border-bottom:1px solid var(--c-border);">
+              <td style="padding:14px 8px;"><a href="{{ order.customer_url }}" style="color:var(--c-primary);font-weight:600;">{{ order.name }}</a></td>
+              <td style="padding:14px 8px;color:var(--c-text-m);">{{ order.created_at | date: '%d %b %Y' }}</td>
+              <td style="padding:14px 8px;"><span style="padding:4px 10px;border-radius:var(--r-full);font-size:0.75rem;font-weight:600;background:var(--c-bg-alt);">{{ order.financial_status_label }}</span></td>
+              <td style="padding:14px 8px;"><span style="padding:4px 10px;border-radius:var(--r-full);font-size:0.75rem;font-weight:600;background:var(--c-bg-alt);">{{ order.fulfillment_status_label }}</span></td>
+              <td style="padding:14px 8px;text-align:end;font-weight:700;color:var(--c-primary);direction:ltr;">{{ order.total_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  {%- else -%}
+    <p style="color:var(--c-text-m);">{{ 'customer.orders.none' | t }}</p>
+  {%- endif -%}
+
+  <!-- Addresses -->
+  <div style="margin-top:48px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+      <h2 style="font-size:1.2rem;">{{ 'customer.addresses.title' | t }}</h2>
+      <a href="/account/addresses" class="btn btn-outline btn-sm">{{ 'customer.account.view_addresses' | t }}</a>
+    </div>
+    {%- if customer.default_address -%}
+      {%- assign addr = customer.default_address -%}
+      <div style="padding:20px;background:var(--c-bg-alt);border-radius:var(--r);font-size:0.9rem;line-height:1.8;{% if request.locale.iso_code == 'ar' %}text-align:right;{% endif %}">
+        <strong>{{ addr.name }}</strong><br>
+        {{ addr.address1 }}{%- if addr.address2 != blank -%}, {{ addr.address2 }}{%- endif -%}<br>
+        {{ addr.city }}{%- if addr.province != blank -%}, {{ addr.province }}{%- endif -%}<br>
+        {{ addr.country }} {{ addr.zip }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

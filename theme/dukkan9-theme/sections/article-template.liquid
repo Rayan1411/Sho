@@ -1,0 +1,22 @@
+{%- render 'breadcrumbs' -%}
+<div class="container">
+  <div class="page-content">
+    <p style="font-size:0.8rem;color:var(--c-text-m);margin-bottom:16px;">{{ article.published_at | date: '%d %B %Y' }}</p>
+    <h1>{{ article.title }}</h1>
+    {%- if article.image -%}
+      <img src="{{ article.image | img_url: '1000x500', crop: 'center' }}" alt="{{ article.title | escape }}" loading="eager" width="1000" height="500" style="width:100%;border-radius:var(--r);margin-block:28px;aspect-ratio:2/1;object-fit:cover;">
+    {%- endif -%}
+    <div class="product-info__description" style="margin-top:0;">{{ article.content }}</div>
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--c-border);">
+      <a href="{{ blog.url }}" class="btn btn-outline btn-sm">← {{ 'blogs.article.back_to_blog' | t: title: blog.title }}</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": [],
+  "presets": [{ "name": "Article" }]
+}
+{% endschema %}

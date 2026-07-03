@@ -1,0 +1,41 @@
+<div class="container" style="padding-block:48px;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px;">
+    <h1>{{ 'customer.addresses.title' | t }}</h1>
+    <a href="/account" class="btn btn-outline btn-sm">{{ 'customer.account.return' | t }}</a>
+  </div>
+  <a href="#" onclick="document.getElementById('addAddressForm').style.display='block';this.style.display='none';return false;" class="btn btn-primary btn-sm" style="margin-bottom:28px;">+ {{ 'customer.addresses.add_new' | t }}</a>
+  <div id="addAddressForm" style="display:none;background:var(--c-bg-alt);border-radius:var(--r);padding:28px;margin-bottom:32px;">
+    {%- form 'customer_address', customer.new_address -%}
+      <div class="form-grid">
+        <div class="field"><label>{{ 'customer.addresses.first_name' | t }}</label><input type="text" name="address[first_name]"></div>
+        <div class="field"><label>{{ 'customer.addresses.last_name' | t }}</label><input type="text" name="address[last_name]"></div>
+      </div>
+      <div class="field"><label>{{ 'customer.addresses.address1' | t }}</label><input type="text" name="address[address1]"></div>
+      <div class="field"><label>{{ 'customer.addresses.address2' | t }}</label><input type="text" name="address[address2]"></div>
+      <div class="form-grid">
+        <div class="field"><label>{{ 'customer.addresses.city' | t }}</label><input type="text" name="address[city]"></div>
+        <div class="field"><label>{{ 'customer.addresses.zip' | t }}</label><input type="text" name="address[zip]"></div>
+      </div>
+      <div class="field"><label>{{ 'customer.addresses.country' | t }}</label>{{ form | country_selector: 'address[country]' }}</div>
+      <div class="field"><label>{{ 'customer.addresses.phone' | t }}</label><input type="tel" name="address[phone]"></div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:8px;">
+        <input type="checkbox" name="address[default]" id="default_addr" value="1">
+        <label for="default_addr">{{ 'customer.addresses.set_default' | t }}</label>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+        <button type="submit" class="btn btn-primary">{{ 'customer.addresses.add' | t }}</button>
+        <button type="button" onclick="document.getElementById('addAddressForm').style.display='none'" class="btn btn-outline">{{ 'customer.addresses.cancel' | t }}</button>
+      </div>
+    {%- endform -%}
+  </div>
+  {%- for address in customer.addresses -%}
+    <div style="background:var(--c-bg-alt);border-radius:var(--r);padding:20px;margin-bottom:16px;font-size:0.9rem;line-height:1.8;">
+      {%- if address == customer.default_address -%}
+        <span style="display:inline-block;background:var(--c-primary);color:#fff;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:var(--r-full);margin-bottom:8px;">{{ 'customer.addresses.default' | t }}</span>
+      {%- endif -%}
+      <p><strong>{{ address.name }}</strong></p>
+      <p>{{ address.address1 }}</p>
+      <p>{{ address.city }}, {{ address.country }}</p>
+    </div>
+  {%- endfor -%}
+</div>

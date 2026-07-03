@@ -1,0 +1,91 @@
+{%- liquid
+  if shop.locale == 'ar'
+    assign s_eyebrow = section.settings.eyebrow_ar | default: 'تصفح'
+    assign s_title   = section.settings.title_ar   | default: 'تسوق حسب الفئة'
+    assign s_shopnow = 'تسوق الآن'
+  else
+    assign s_eyebrow = section.settings.eyebrow_en | default: 'Browse'
+    assign s_title   = section.settings.title_en   | default: 'Shop by Category'
+    assign s_shopnow = 'Shop Now'
+  endif
+-%}
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      {%- if s_eyebrow != blank -%}
+        <div class="eyebrow">{{ s_eyebrow }}</div>
+      {%- endif -%}
+      <h2>{{ s_title }}</h2>
+    </div>
+    <div class="collection-grid">
+      {%- for block in section.blocks -%}
+        {%- assign col = collections[block.settings.collection] -%}
+        {%- liquid
+          if shop.locale == 'ar'
+            assign block_label = block.settings.label_ar | default: col.title
+          else
+            assign block_label = block.settings.label_en | default: col.title
+          endif
+        -%}
+        <a href="{{ col.url | default: '#' }}" class="collection-card" {{ block.shopify_attributes }}>
+          {%- if block.settings.image -%}
+            <img src="{{ block.settings.image | img_url: '600x750', crop: 'center' }}" alt="{{ block_label | escape }}" loading="lazy">
+          {%- elsif col.image -%}
+            <img src="{{ col.image | img_url: '600x750', crop: 'center' }}" alt="{{ col.title | escape }}" loading="lazy">
+          {%- else -%}
+            {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+          <div class="collection-card__overlay">
+            <div class="collection-card__overlay-content">
+              <h3>{{ block_label }}</h3>
+              <span class="collection-card__cta">
+                {{ s_shopnow }}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      {%- else -%}
+        <p style="color:var(--c-text-m);text-align:center;grid-column:1/-1;">
+          {%- if shop.locale == 'ar' -%}أضف تصنيفات من محرر القالب{%- else -%}Add collections from the theme editor{%- endif -%}
+        </p>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collections",
+  "settings": [
+    { "type": "header", "content": "Arabic (العربية)" },
+    { "type": "text", "id": "eyebrow_ar", "label": "Eyebrow (AR)", "default": "تصفح" },
+    { "type": "text", "id": "title_ar",   "label": "Title (AR)",   "default": "تسوق حسب الفئة" },
+    { "type": "header", "content": "English" },
+    { "type": "text", "id": "eyebrow_en", "label": "Eyebrow (EN)", "default": "Browse" },
+    { "type": "text", "id": "title_en",   "label": "Title (EN)",   "default": "Shop by Category" }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        { "type": "collection",   "id": "collection", "label": "Collection" },
+        { "type": "image_picker", "id": "image",      "label": "Override image" },
+        { "type": "text",         "id": "label_ar",   "label": "Label (AR)" },
+        { "type": "text",         "id": "label_en",   "label": "Label (EN)" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{
+    "name": "Featured Collections",
+    "blocks": [
+      { "type": "collection" },
+      { "type": "collection" },
+      { "type": "collection" }
+    ]
+  }]
+}
+{% endschema %}
